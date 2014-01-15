@@ -53,6 +53,7 @@ namespace :git do
       echo "-----> Using this git commit" &&
       echo &&
       #{echo_cmd %[git --no-pager log --format="%aN (%h):%n> %s" -n 1]} &&
+      #{echo_cmd %[echo `git rev-parse HEAD` > REVISION]} &&
       #{echo_cmd %[rm -rf .git]} &&
       echo
     ]
